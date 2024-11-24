@@ -1,16 +1,17 @@
 package tum.seba.mobilityservices.entity;
+import java.util.Date;
 
 public class Vehicle {
 
     //Attributes
     private String manufacturer;
     private String modelType;
-    private String lastService;
+    private Date lastService;
     private boolean isAvailable;
     //EndOfAttributes
 
     //Constructor
-    public Vehicle(String manufacturer, String modelType, String lastService, boolean isAvailable) {
+    public Vehicle(String manufacturer, String modelType, Date lastService, boolean isAvailable) {
         this.manufacturer = manufacturer;
         this.modelType = modelType;
         this.lastService = lastService;
@@ -35,11 +36,11 @@ public class Vehicle {
         this.modelType = modelType;
     }
 
-    public String getLastService() {
+    public Date getLastService() {
         return lastService;
     }
 
-    public void setLastService(String lastService) {
+    public void setLastService(Date lastService) {
         this.lastService = lastService;
     }
 
