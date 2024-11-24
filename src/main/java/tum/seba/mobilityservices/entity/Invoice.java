@@ -2,14 +2,19 @@ package tum.seba.mobilityservices.entity;
 
 public class Invoice {
 
+    //Attributes
     private Double price;
     private Boolean isPaid;
+    //EndOfAttributes
 
+    //Constructor
     public Invoice(Double price, Boolean isPaid) {
         this.price = price;
         this.isPaid = isPaid;
     }
+    //EndOfConstructor
 
+    //GettersAndSetters
     public Double getPrice() {
         return price;
     }
@@ -25,7 +30,9 @@ public class Invoice {
     public void setPaid(Boolean paid) {
         isPaid = paid;
     }
+    //EndOfGettersAndSetters
 
+    //toString
     @Override
     public String toString() {
         return "Invoice{" +
@@ -33,5 +40,6 @@ public class Invoice {
                 ", isPaid=" + isPaid +
                 '}';
     }
-    
+    //EndOftoString
+
 }
