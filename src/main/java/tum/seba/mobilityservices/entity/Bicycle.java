@@ -1,4 +1,5 @@
 package tum.seba.mobilityservices.entity;
+import java.util.Date;
 
 public class Bicycle extends Vehicle{
 
@@ -8,7 +9,7 @@ public class Bicycle extends Vehicle{
     //EndOfAttributes
 
     //Constructor
-    public Bicycle(String manufacturer, String modelType, String lastService, boolean isAvailable, int numberOfGears, boolean isElectrical) {
+    public Bicycle(String manufacturer, String modelType, Date lastService, boolean isAvailable, int numberOfGears, boolean isElectrical) {
         super(manufacturer, modelType, lastService, isAvailable);
         this.numberOfGears = numberOfGears;
         this.isElectrical = isElectrical;

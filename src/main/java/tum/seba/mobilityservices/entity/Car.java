@@ -1,4 +1,5 @@
 package tum.seba.mobilityservices.entity;
+import java.util.Date;
 
 public class Car extends Vehicle {
 
@@ -10,7 +11,7 @@ public class Car extends Vehicle {
     //EndOfAttributes
 
     //Constructor
-    public Car(String manufacturer, String modelType, String lastService, boolean isAvailable, int numberOfSeats, int horsePower, String fuelType, int currentMileage) {
+    public Car(String manufacturer, String modelType, Date lastService, boolean isAvailable, int numberOfSeats, int horsePower, String fuelType, int currentMileage) {
 
         super(manufacturer, modelType, lastService, isAvailable);
         this.numberOfSeats = numberOfSeats;
