@@ -3,7 +3,7 @@ import java.util.Date;
 public class Rental {
 
     //ENUM
-    enum Status {
+    public enum Status {
         BOOKED,
         COMPLETED,
         CANCELLED
