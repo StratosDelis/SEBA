@@ -1,27 +1,30 @@
 package tum.seba.mobilityservices.entity;
 import java.util.Date;
 public class Rental {
+
+    //ENUM
     enum Status {
         BOOKED,
         COMPLETED,
         CANCELLED
     }
+    //EndOfENUM
+
+    //Attributes
     private Date startTime;
     private Date endTime;
     private Status status ;
+    //EndOfAttributes
 
-    @Override
-    public String toString() {
-        return "Rental{" +
-                "startTime=" + startTime +
-                ", endTime=" + endTime +
-                ", status=" + status +
-                '}';
+    //Constructor
+    public Rental(Date startTime, Date endTime, Status status) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.status = status;
     }
+    //EndOfConstructor
 
-    public Rental() {
-
-    }
+    //GettersAndSetters
     public Status getStatus() {
         return status;
     }
@@ -43,4 +46,16 @@ public class Rental {
     public void setStatus(Status status) {
         this.status = status;
     }
+    //EndOfGettersAndSetters
+
+    //toString
+    @Override
+    public String toString() {
+        return "Rental{" +
+                "startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", status=" + status +
+                '}';
+    }
+    //EndOfToString
 }

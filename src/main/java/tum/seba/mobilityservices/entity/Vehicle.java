@@ -62,5 +62,5 @@ public class Vehicle {
                 ", isAvailable=" + isAvailable +
                 '}';
     }
-    //EndOftoString
+    //EndOfToString
 }

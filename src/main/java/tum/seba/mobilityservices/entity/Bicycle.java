@@ -41,5 +41,5 @@ public class Bicycle extends Vehicle{
                 ", isElectrical=" + isElectrical +
                 '}';
     }
-    //EndOftoString
+    //EndOfToString
 }

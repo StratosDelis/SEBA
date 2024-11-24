@@ -42,5 +42,5 @@ public class Customer extends User{
                 ", dateOfBirth=" + dateOfBirth +
                 '}';
     }
-    //EndOftoString
+    //EndOfToString
 }

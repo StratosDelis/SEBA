@@ -64,5 +64,5 @@ public class Car extends Vehicle {
                 ", currentMileage=" + currentMileage +
                 '}';
     }
-    //EndOftoString
+    //EndOfToString
 }

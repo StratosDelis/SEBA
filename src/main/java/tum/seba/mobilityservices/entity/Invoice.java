@@ -40,6 +40,6 @@ public class Invoice {
                 ", isPaid=" + isPaid +
                 '}';
     }
-    //EndOftoString
+    //EndOfToString
 
 }
