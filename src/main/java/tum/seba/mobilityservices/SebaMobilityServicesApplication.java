@@ -24,8 +24,7 @@ public class SebaMobilityServicesApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SebaMobilityServicesApplication.class, args);
 	}
-    //push test
-    //please work
+
 	@EventListener(ApplicationReadyEvent.class)
 	public void execCodeAfterStartup() {
 	
