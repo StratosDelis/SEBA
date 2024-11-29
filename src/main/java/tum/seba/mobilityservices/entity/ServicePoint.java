@@ -1,11 +1,21 @@
 package tum.seba.mobilityservices.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class ServicePoint {
 	
 	private String name;
 	private String streetName;
 	private int houseNumber;
 	private String city;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int servicePointId;
 	
 	public ServicePoint(String name, String streetName, int houseNumber, String city) {
 		this.name = name;
@@ -13,7 +23,10 @@ public class ServicePoint {
 		this.houseNumber = houseNumber;
 		this.city = city;
 	}
-	
+
+	public ServicePoint() {
+	}
+
 	public String getName() {
 		return name;
 	}
