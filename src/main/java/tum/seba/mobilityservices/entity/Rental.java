@@ -1,7 +1,14 @@
 package tum.seba.mobilityservices.entity;
 
-import java.util.Date;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+import java.util.Date;
+@Entity
 public class Rental {
 
 	public enum Status {BOOKED, COMPLETED, CANCELED}
@@ -9,12 +16,19 @@ public class Rental {
 	private Date startTime;	
 	private Date endTime;	
 	private Status status;
+    @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int rentalId;
+
+	public Rental() {
+	}
 	
 	public Rental(Date startTime, Date endTime, Status status) {
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.status = status;
 	}
+
 
 	public Date getStartTime() {
 		return startTime;
