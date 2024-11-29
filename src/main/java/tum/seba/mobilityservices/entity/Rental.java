@@ -22,7 +22,7 @@ public class Rental {
 
 	public Rental() {
 	}
-	
+
 	public Rental(Date startTime, Date endTime, Status status) {
 		this.startTime = startTime;
 		this.endTime = endTime;
