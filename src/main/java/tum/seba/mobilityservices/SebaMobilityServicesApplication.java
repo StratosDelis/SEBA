@@ -2,6 +2,7 @@ package tum.seba.mobilityservices;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -17,9 +18,13 @@ import tum.seba.mobilityservices.entity.Rental.Status;
 import tum.seba.mobilityservices.entity.ServicePoint;
 import tum.seba.mobilityservices.entity.User;
 import tum.seba.mobilityservices.entity.Vehicle;
+import tum.seba.mobilityservices.service.RentalService;
 
 @SpringBootApplication
 public class SebaMobilityServicesApplication {
+
+	@Autowired
+	RentalService rentalService = new RentalService();
 
 	public static void main(String[] args) {
 		SpringApplication.run(SebaMobilityServicesApplication.class, args);
@@ -29,7 +34,7 @@ public class SebaMobilityServicesApplication {
 	public void execCodeAfterStartup() {
 	
 		// Instantiate your classes here and output their content to the console by calling their toString() method
-		
+
 		// instantiate test data
 		
 		Rental testRental = new Rental(new Date(), new Date(), Status.BOOKED);
@@ -54,7 +59,9 @@ public class SebaMobilityServicesApplication {
 		System.out.println(testVehicle.toString());
 		System.out.println(testCar.toString());
 		System.out.println(testBicycle.toString());
-		
+
+		System.out.println(rentalService.saveRental(testRental));
+
 	}
 
 }
