@@ -18,13 +18,21 @@ import tum.seba.mobilityservices.entity.Rental.Status;
 import tum.seba.mobilityservices.entity.ServicePoint;
 import tum.seba.mobilityservices.entity.User;
 import tum.seba.mobilityservices.entity.Vehicle;
+import tum.seba.mobilityservices.service.InvoiceService;
 import tum.seba.mobilityservices.service.RentalService;
+import tum.seba.mobilityservices.service.ServicePointService;
 
 @SpringBootApplication
 public class SebaMobilityServicesApplication {
 
 	@Autowired
 	RentalService rentalService = new RentalService();
+
+	@Autowired
+	InvoiceService invoiceService = new InvoiceService();
+
+	@Autowired
+	ServicePointService servicePointService = new ServicePointService();
 
 	public static void main(String[] args) {
 		SpringApplication.run(SebaMobilityServicesApplication.class, args);
@@ -60,7 +68,10 @@ public class SebaMobilityServicesApplication {
 		System.out.println(testCar.toString());
 		System.out.println(testBicycle.toString());
 
+		System.out.println("Instances saved on the H2 DB: ");
 		System.out.println(rentalService.saveRental(testRental));
+		System.out.println(invoiceService.saveInvoice(testInvoice));
+		System.out.println(servicePointService.saveServicePoint(testServicePoint));
 
 	}
 
