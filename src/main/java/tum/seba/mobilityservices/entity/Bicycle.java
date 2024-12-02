@@ -1,7 +1,9 @@
 package tum.seba.mobilityservices.entity;
 
-import java.util.Date;
+import jakarta.persistence.Entity;
 
+import java.util.Date;
+@Entity
 	public class Bicycle extends Vehicle {
 	private int numberOfGears;
 	private boolean isElectrical;

@@ -1,13 +1,24 @@
 package tum.seba.mobilityservices.entity;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 
+
+@Entity
+@Inheritance(strategy= InheritanceType.JOINED)
 public class Vehicle {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int vehicleid;
 	private String manufacturer;	
 	private String modelType;
 	private Date lastService;
 	private boolean isAvailable;
-	
+
+	public Vehicle() {
+	}
+
 	public Vehicle(String manufacturer, String modelType, Date lastService, boolean isAvailable) {
 		this.manufacturer = manufacturer;
 		this.modelType = modelType;

@@ -1,9 +1,12 @@
 package tum.seba.mobilityservices.entity;
 
-import java.util.Date;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+import java.util.Date;
+@Entity
 public class Car extends Vehicle {
-	
+
 	private int numberOfSeats;
 	private int horsePower;
 	private String fuelType;
