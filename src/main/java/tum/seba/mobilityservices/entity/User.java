@@ -1,6 +1,16 @@
 package tum.seba.mobilityservices.entity;
 
-public class User {
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
+
+@MappedSuperclass
+public abstract class User {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int userId;
 
 	private String firstName;
 	private String lastName;
