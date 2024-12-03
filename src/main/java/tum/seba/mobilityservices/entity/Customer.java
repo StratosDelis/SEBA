@@ -1,7 +1,10 @@
 package tum.seba.mobilityservices.entity;
 
+import jakarta.persistence.Entity;
+
 import java.util.Date;
 
+@Entity
 public class Customer extends User {
 
 	private String username;
