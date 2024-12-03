@@ -1,5 +1,6 @@
 package tum.seba.mobilityservices.entity;
 
+import java.security.Provider;
 import java.util.Date;
 
 import jakarta.persistence.*;
@@ -15,6 +16,12 @@ public class Rental {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+
+	@ManyToOne
+	private ServicePoint startLocation;
+
+	@ManyToOne
+	private ServicePoint endLocation;
 
 	private Date startTime;
 	private Date endTime;
@@ -75,6 +82,22 @@ public class Rental {
 
 	public Invoice getInvoice() {
 		return invoice;
+	}
+	public ServicePoint getStartLocation() {
+		return startLocation;
+	}
+
+	public void setStartLocation(ServicePoint startLocation) {
+		this.startLocation = startLocation;
+	}
+
+	public ServicePoint getEndLocation() {
+		return endLocation;
+	}
+
+	public void setEndLocation(ServicePoint endLocation) {
+		this.endLocation = endLocation;
+
 	}
 
 	@Override

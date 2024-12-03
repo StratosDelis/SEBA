@@ -11,7 +11,13 @@ public class ServicePoint {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
+	@OneToMany(mappedBy = "startLocation", cascade = CascadeType.ALL)
+	private List<Rental> rentalsStart;
+
+	@OneToMany(mappedBy = "endLocation", cascade = CascadeType.ALL)
+	private List<Rental> rentalsEnd;
+
 	private String name;
 	private String streetName;
 	private int houseNumber;
@@ -66,12 +72,29 @@ public class ServicePoint {
 		this.city = city;
 	}
 
+
 	public List<Employee> getEmployees() {
 		return employees;
 	}
 
 	public void setEmployees(List<Employee> employees) {
-		this.employees = employees;
+		this.employees = employees;}
+		//Setters and Getters
+
+	public List<Rental> getRentalsStart() {
+		return rentalsStart;
+	}
+
+	public void setRentalsStart(List<Rental> rentalsStart) {
+		this.rentalsStart = rentalsStart;
+	}
+
+	public List<Rental> getRentalsEnd() {
+		return rentalsEnd;
+	}
+
+	public void setRentalsEnd(List<Rental> rentalsEnd) {
+		this.rentalsEnd = rentalsEnd;
 	}
 
 	@Override

@@ -12,7 +12,7 @@ public abstract class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userId;
 
-	public User() {
+	public class User() {
 	}
 
 	private String firstName;
@@ -33,6 +33,8 @@ public abstract class User {
 		this.houseNumber = houseNumber;
 		this.city = city;
 	}
+
+	public User() {}
 
 	public String getFirstName() {
 		return firstName;
@@ -88,6 +90,14 @@ public abstract class User {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	@Override

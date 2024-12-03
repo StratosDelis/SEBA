@@ -6,6 +6,7 @@ import jakarta.persistence.OneToMany;
 
 import java.util.Date;
 import java.util.List;
+
 @Entity
 public class Customer extends User {
 

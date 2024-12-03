@@ -5,6 +5,7 @@ import jakarta.persistence.ManyToMany;
 
 import java.util.Date;
 import java.util.List;
+
 @Entity
 public class Employee extends User {
 
