@@ -48,7 +48,7 @@ public class SebaMobilityServicesApplication {
 		Rental testRental = new Rental(new Date(), new Date(), Status.BOOKED);
 		Invoice testInvoice = new Invoice(120.50, true);
 		ServicePoint testServicePoint = new ServicePoint("TUM Main Campus", "Arcisstr.", 21, "Munich");
-		User testUser = new User("Max", "Test", "max.test@tum.de", "pw123", "Arcisstr.", 21, "Munich");
+//		User testUser = new User("Max", "Test", "max.test@tum.de", "pw123", "Arcisstr.", 21, "Munich");
 		Employee testEmployee = new Employee("Max", "Test", "max.test@tum.de", "pw123", "Arcisstr.", 21, "Munich", "0123456789", new Date());
 		Customer testCustomer = new Customer("Max", "Test", "max.test@tum.de", "pw123", "Arcisstr.", 21, "Munich", "maxtest", new Date());
 		Vehicle testVehicle = new Vehicle("TUM", "Vehicle", new Date(), true);
@@ -60,7 +60,7 @@ public class SebaMobilityServicesApplication {
 		System.out.println(testRental.toString());
 		System.out.println(testInvoice.toString());
 		System.out.println(testServicePoint.toString());
-		System.out.println(testUser.toString());
+//		System.out.println(testUser.toString());
 		System.out.println(testEmployee.toString());
 		System.out.println(testCustomer.toString());
 		System.out.println(testVehicle.toString());
@@ -79,6 +79,9 @@ public class SebaMobilityServicesApplication {
 		System.out.println(invoiceService.findById(testInvoice.getId()).toString());
 		System.out.println(servicePointService.findById(testServicePoint.getId()).toString());
 
+		// One-To-Many / Many-To-One
+		testRental.setStartLocation(testServicePoint);
+		testRental.setEndLocation(testServicePoint);
 	}
 
 }
