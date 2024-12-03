@@ -1,9 +1,8 @@
 package tum.seba.mobilityservices.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class ServicePoint {
@@ -11,7 +10,13 @@ public class ServicePoint {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
+	@OneToMany(mappedBy = "startLocation", cascade = CascadeType.ALL)
+	private List<Rental> rentalsStart;
+
+	@OneToMany(mappedBy = "endLocation", cascade = CascadeType.ALL)
+	private List<Rental> rentalsEnd;
+
 	private String name;
 	private String streetName;
 	private int houseNumber;
@@ -64,6 +69,24 @@ public class ServicePoint {
 	
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	//Setters and Getters
+
+	public List<Rental> getRentalsStart() {
+		return rentalsStart;
+	}
+
+	public void setRentalsStart(List<Rental> rentalsStart) {
+		this.rentalsStart = rentalsStart;
+	}
+
+	public List<Rental> getRentalsEnd() {
+		return rentalsEnd;
+	}
+
+	public void setRentalsEnd(List<Rental> rentalsEnd) {
+		this.rentalsEnd = rentalsEnd;
 	}
 
 	@Override

@@ -1,13 +1,9 @@
 package tum.seba.mobilityservices.entity;
 
+import java.security.Provider;
 import java.util.Date;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Rental {
@@ -17,6 +13,12 @@ public class Rental {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+
+	@ManyToOne
+	private ServicePoint startLocation;
+
+	@ManyToOne
+	private ServicePoint endLocation;
 
 	private Date startTime;
 	private Date endTime;
@@ -62,6 +64,23 @@ public class Rental {
 
 	public void setStatus(Status status) {
 		this.status = status;
+	}
+
+	//Setters and Getters
+	public ServicePoint getStartLocation() {
+		return startLocation;
+	}
+
+	public void setStartLocation(ServicePoint startLocation) {
+		this.startLocation = startLocation;
+	}
+
+	public ServicePoint getEndLocation() {
+		return endLocation;
+	}
+
+	public void setEndLocation(ServicePoint endLocation) {
+		this.endLocation = endLocation;
 	}
 
 	@Override
