@@ -2,18 +2,16 @@ package tum.seba.mobilityservices.entity;
 
 import java.util.Date;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Rental {
-
 	public enum Status {BOOKED, COMPLETED, CANCELED}
-	
+	@ManyToOne
+	private Customer customer;
+
+	@OneToOne(mappedBy="rentalId", cascade = CascadeType.ALL)
+	private Invoice invoice;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -62,6 +60,21 @@ public class Rental {
 
 	public void setStatus(Status status) {
 		this.status = status;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public void setInvoice(Invoice invoice) {
+		this.invoice = invoice;
+	}
+
+	public Invoice getInvoice() {
+		return invoice;
 	}
 
 	@Override

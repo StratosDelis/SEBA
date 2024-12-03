@@ -12,6 +12,9 @@ public abstract class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userId;
 
+	public User() {
+	}
+
 	private String firstName;
 	private String lastName;
 	private String email;

@@ -1,13 +1,11 @@
 package tum.seba.mobilityservices.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Invoice {
-	
+	@OneToOne
+	private Rental rental;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -45,7 +43,15 @@ public class Invoice {
 	public void setPaid(boolean isPaid) {
 		this.isPaid = isPaid;
 	}
-	
+
+	public Rental getRental() {
+		return rental;
+	}
+
+	public void setRental(Rental rental) {
+		this.rental = rental;
+	}
+
 	@Override
 	public String toString() {
 		return "Invoice [id=" + id + ", price=" + price + ", isPaid=" + isPaid + "]";

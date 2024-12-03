@@ -1,9 +1,15 @@
 package tum.seba.mobilityservices.entity;
 
-import java.util.Date;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 
+import java.util.Date;
+import java.util.List;
+@Entity
 public class Employee extends User {
 
+	@ManyToMany
+	private List<ServicePoint> servicePoints;
 	private String phoneNumber;
 	private Date employmentDate;
 	
@@ -28,6 +34,14 @@ public class Employee extends User {
 
 	public void setEmploymentDate(Date employmentDate) {
 		this.employmentDate = employmentDate;
+	}
+
+	public List<ServicePoint> getServicePoints() {
+		return servicePoints;
+	}
+
+	public void setServicePoints(List<ServicePoint> servicePoints) {
+		this.servicePoints = servicePoints;
 	}
 
 	@Override

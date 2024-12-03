@@ -1,8 +1,16 @@
 package tum.seba.mobilityservices.entity;
 
-import java.util.Date;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 
+import java.util.Date;
+import java.util.List;
+@Entity
 public class Customer extends User {
+
+ 	@OneToMany(mappedBy="customerId",cascade = CascadeType.ALL)
+ 	private List<Rental> rentals;
 
 	private String username;
 	private Date dateOfBirth;
@@ -28,6 +36,14 @@ public class Customer extends User {
 
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
+	}
+
+	public List<Rental> getRentals() {
+		return rentals;
+	}
+
+	public void setRentals(List<Rental> rentals) {
+		this.rentals = rentals;
 	}
 
 	@Override

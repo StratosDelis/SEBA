@@ -1,13 +1,13 @@
 package tum.seba.mobilityservices.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class ServicePoint {
-	
+	@ManyToMany
+	private List<Employee> employees;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -64,6 +64,14 @@ public class ServicePoint {
 	
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public List<Employee> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
 	}
 
 	@Override
