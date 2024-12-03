@@ -13,6 +13,9 @@ public class Vehicle {
 	@OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL)
 	private List<Rental> rentals;
 
+	@ManyToOne
+	private ServicePoint currentLocation;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int vehicleid;
@@ -79,6 +82,14 @@ public class Vehicle {
 
 	public void setRentals(List<Rental> rentals) {
 		this.rentals = rentals;
+	}
+
+	public ServicePoint getCurrentLocation() {
+		return currentLocation;
+	}
+
+	public void setCurrentLocation(ServicePoint currentLocation) {
+		this.currentLocation = currentLocation;
 	}
 
 	@Override

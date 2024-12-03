@@ -18,6 +18,9 @@ public class ServicePoint {
 	@OneToMany(mappedBy = "endLocation", cascade = CascadeType.ALL)
 	private List<Rental> rentalsEnd;
 
+	@OneToMany(mappedBy = "currentLocation", cascade = CascadeType.ALL)
+	private List<Vehicle> vehicles;
+
 	private String name;
 	private String streetName;
 	private int houseNumber;
@@ -95,6 +98,14 @@ public class ServicePoint {
 
 	public void setRentalsEnd(List<Rental> rentalsEnd) {
 		this.rentalsEnd = rentalsEnd;
+	}
+
+	public List<Vehicle> getVehicles() {
+		return vehicles;
+	}
+
+	public void setVehicles(List<Vehicle> vehicles) {
+		this.vehicles = vehicles;
 	}
 
 	@Override
