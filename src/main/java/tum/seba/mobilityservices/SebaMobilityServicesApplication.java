@@ -1,6 +1,8 @@
 package tum.seba.mobilityservices;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -56,6 +58,10 @@ public class SebaMobilityServicesApplication {
 		Vehicle testVehicle = new Vehicle("TUM", "Vehicle", new Date(), true);
 		Car testCar = new Car("TUM", "Car", new Date(), true, 5, 215, "gasoline", 10000);
 		Bicycle testBicycle = new Bicycle("TUM", "eBike", new Date(), true, 10, true);
+        List<Rental> testRentals = new ArrayList<>(List.of(testRental));
+		List<Vehicle> testVehicles = new ArrayList<>(List.of(testVehicle));
+		List<Employee> testEmployees = new ArrayList<>(List.of(testEmployee));
+		List<ServicePoint> testServicePoints = new ArrayList<>(List.of(testServicePoint));
 
 		// print out all instances to the console
 		
@@ -86,6 +92,23 @@ public class SebaMobilityServicesApplication {
 		// One-To-Many / Many-To-One
 		testRental.setStartLocation(testServicePoint);
 		testRental.setEndLocation(testServicePoint);
+		testServicePoint.setRentalsEnd(testRentals);
+		testServicePoint.setRentalsStart(testRentals);
+
+		testCustomer.setRentals(testRentals);
+		testRental.setCustomer(testCustomer);
+
+		testRental.setVehicle(testVehicle);
+		testVehicle.setRentals(testRentals);
+
+		testServicePoint.setVehicles(testVehicles);
+		testVehicle.setCurrentLocation(testServicePoint);
+		//One-to-One
+		testRental.setInvoice(testInvoice);
+		testInvoice.setRental(testRental);
+		//Many-To-Many
+		testEmployee.setServicePoints(testServicePoints);
+		testServicePoint.setEmployees(testEmployees);
 	}
 
 }

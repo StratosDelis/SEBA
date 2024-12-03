@@ -12,9 +12,6 @@ public abstract class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userId;
 
-	public class User() {
-	}
-
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -22,7 +19,7 @@ public abstract class User {
 	private String streetName;
 	private int houseNumber;
 	private String city;
-	
+	public User(){};
 	public User(String firstName, String lastName, String email, String password, String streetName, int houseNumber,
 			String city) {
 		this.firstName = firstName;
@@ -33,8 +30,6 @@ public abstract class User {
 		this.houseNumber = houseNumber;
 		this.city = city;
 	}
-
-	public User() {}
 
 	public String getFirstName() {
 		return firstName;
