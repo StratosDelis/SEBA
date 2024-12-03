@@ -1,4 +1,4 @@
-ntpackage tum.seba.mobilityservices.service;
+package tum.seba.mobilityservices.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

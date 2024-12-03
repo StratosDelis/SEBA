@@ -31,6 +31,8 @@ public abstract class User {
 		this.city = city;
 	}
 
+	public User() {}
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -85,6 +87,14 @@ public abstract class User {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	@Override
