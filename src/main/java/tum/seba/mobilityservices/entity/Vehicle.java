@@ -3,11 +3,16 @@ package tum.seba.mobilityservices.entity;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
 @Inheritance(strategy= InheritanceType.JOINED)
 public class Vehicle {
+
+	@OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL)
+	private List<Rental> rentals;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int vehicleid;
@@ -56,6 +61,24 @@ public class Vehicle {
 
 	public void setAvailable(boolean isAvailable) {
 		this.isAvailable = isAvailable;
+	}
+
+	//Getters and Setters
+
+	public int getVehicleid() {
+		return vehicleid;
+	}
+
+	public void setVehicleid(int vehicleid) {
+		this.vehicleid = vehicleid;
+	}
+
+	public List<Rental> getRentals() {
+		return rentals;
+	}
+
+	public void setRentals(List<Rental> rentals) {
+		this.rentals = rentals;
 	}
 
 	@Override

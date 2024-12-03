@@ -23,6 +23,9 @@ public class Rental {
 	@ManyToOne
 	private ServicePoint endLocation;
 
+	@ManyToOne
+	private Vehicle vehicle;
+
 	private Date startTime;
 	private Date endTime;
 	
@@ -98,6 +101,14 @@ public class Rental {
 	public void setEndLocation(ServicePoint endLocation) {
 		this.endLocation = endLocation;
 
+	}
+
+	public Vehicle getVehicle() {
+		return vehicle;
+	}
+
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
 	}
 
 	@Override
